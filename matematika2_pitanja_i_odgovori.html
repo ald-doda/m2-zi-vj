@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matematika II – Pitanja i Odgovori za Završni Ispit</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --paper: #fdfbf7;
+    --ink: #1c1c2e;
+    --accent: #7a1515;
+    --accent2: #1a4530;
+    --soft: #f2ede3;
+    --muted: #666680;
+    --border: #c8c4b8;
+    --q-bg: #1c1c2e;
+    --a-bg: #f8fff9;
+    --a-border: #1a4530;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #ccc9be;
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: var(--ink);
+    padding: 2rem 1rem 4rem;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .cover {
+    background: var(--q-bg);
+    color: #e8e4d8;
+    max-width: 820px;
+    margin: 0 auto 0.4rem;
+    padding: 3rem 3.5rem;
+    text-align: center;
+  }
+
+  .cover .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9999bb;
+    margin-bottom: 1rem;
+  }
+
+  .cover h1 {
+    font-size: 1.9rem;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+  }
+
+  .cover h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #aaa8cc;
+    margin-bottom: 2rem;
+  }
+
+  .cover .stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    font-size: 0.85rem;
+    color: #8888aa;
+    border-top: 1px solid #333355;
+    padding-top: 1.2rem;
+  }
+
+  .cover .stats strong {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #e8e4d8;
+    font-style: italic;
+  }
+
+  .toc {
+    background: var(--soft);
+    max-width: 820px;
+    margin: 0 auto 0.4rem;
+    padding: 1.5rem 3.5rem;
+    border-left: 4px solid var(--accent);
+  }
+
+  .toc h3 {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  .toc ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.2rem 2rem;
+  }
+
+  .toc li {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .toc li span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin-right: 0.4rem;
+  }
+
+  .page {
+    background: var(--paper);
+    max-width: 820px;
+    margin: 0 auto 0.4rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+
+  .section-header {
+    background: var(--q-bg);
+    color: #e8e4d8;
+    padding: 0.8rem 3.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #444466;
+  }
+
+  .qa-block {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .qa-block:last-child {
+    border-bottom: none;
+  }
+
+  .question-part {
+    padding: 1.6rem 3.5rem 1.2rem;
+    background: var(--paper);
+    cursor: pointer;
+    position: relative;
+  }
+
+  .q-label-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .q-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--paper);
+    background: var(--accent);
+    padding: 0.2rem 0.55rem;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    letter-spacing: 0.04em;
+  }
+
+  .q-body {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .math-block {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    background: #ebe8e0;
+    border-left: 3px solid var(--accent);
+    padding: 0.6rem 1.2rem;
+    margin: 0.7rem 0;
+    letter-spacing: 0.02em;
+  }
+
+  .math-inline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    background: #eee;
+    padding: 0.05rem 0.3rem;
+  }
+
+  .toggle-hint {
+    position: absolute;
+    right: 3.5rem;
+    top: 1.6rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .answer-part {
+    padding: 1.2rem 3.5rem 1.6rem;
+    background: var(--a-bg);
+    border-left: 4px solid var(--a-border);
+    display: none;
+  }
+
+  .answer-part.open {
+    display: block;
+  }
+
+  .a-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--a-border);
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 0.7rem;
+  }
+
+  .a-body {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .a-body ul, .a-body ol {
+    padding-left: 1.4rem;
+    margin: 0.5rem 0;
+  }
+
+  .a-body li {
+    margin-bottom: 0.3rem;
+  }
+
+  .math-answer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    background: #e6f0e8;
+    border-left: 3px solid var(--a-border);
+    padding: 0.6rem 1.2rem;
+    margin: 0.6rem 0;
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+
+  .math-answer.final {
+    background: #d0e8d4;
+    border-left: 4px solid var(--a-border);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .note-box {
+    background: #fefbe8;
+    border-left: 3px solid #b8960a;
+    padding: 0.5rem 1rem;
+    margin: 0.6rem 0;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: #5a4a00;
+  }
+
+  .show-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.73rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--a-border);
+    border: 1px solid var(--a-border);
+    padding: 0.25rem 0.8rem;
+    cursor: pointer;
+    background: none;
+    transition: background 0.15s;
+  }
+
+  .show-btn:hover {
+    background: #d0e8d4;
+  }
+
+  .show-all-bar {
+    background: var(--soft);
+    max-width: 820px;
+    margin: 0 auto 0.4rem;
+    padding: 0.8rem 3.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border-left: 4px solid var(--accent2);
+  }
+
+  .show-all-bar button {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.73rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    cursor: pointer;
+    border: 1px solid;
+    background: none;
+  }
+
+  #btn-open-all { color: var(--a-border); border-color: var(--a-border); }
+  #btn-open-all:hover { background: #d0e8d4; }
+  #btn-close-all { color: var(--accent); border-color: var(--accent); }
+  #btn-close-all:hover { background: #fde8e8; }
+
+  .show-all-bar span {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  sub, sup { font-size: 0.72em; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="label">Priprema za ispit · Matematika II</div>
+  <h1>Pitanja i Odgovori</h1>
+  <h2>Završni ispit – kompletan materijal</h2>
+  <div class="stats">
+    <div><strong>30</strong>pitanja</div>
+    <div><strong>6</strong>tema</div>
+    <div><strong>Klikni</strong>za odgovor</div>
+  </div>
+</div>
+
+<div class="toc">
+  <h3>Teme</h3>
+  <ul>
+    <li><span>I</span> Primitivna funkcija i neodređeni integral</li>
+    <li><span>II</span> Tabela integrala i svojstva</li>
+    <li><span>III</span> Supstitucija (smjena promjenljive)</li>
+    <li><span>IV</span> Parcijalna integracija</li>
+    <li><span>V</span> Integracija racionalnih funkcija</li>
+    <li><span>VI</span> Napredni integrali i rekurentne formule</li>
+  </ul>
+</div>
+
+<div class="show-all-bar">
+  <button id="btn-open-all" onclick="openAll()">▼ Otvori sve odgovore</button>
+  <button id="btn-close-all" onclick="closeAll()">▲ Zatvori sve odgovore</button>
+  <span>Klikni na pitanje da vidiš odgovor</span>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SEKCIJA I -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="page">
+<div class="section-header">I — Primitivna funkcija i neodređeni integral</div>
+
+<!-- P1 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P1</span>
+      <div class="q-body">Definisati primitivnu funkciju. Kada kažemo da je F(x) primitivna funkcija za f(x) na (a,b)?</div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      F = F(x) je <strong>tačna primitivna funkcija</strong> za f = f(x) na (a,b) ako je:
+      <ul>
+        <li>F ∈ D((a,b)) — F je diferencijabilna na (a,b)</li>
+        <li>važi F'(x) = f(x) za sve x ∈ (a,b)</li>
+      </ul>
+      <div class="note-box">Primjer: F(x) = x² je primitivna za f(x) = 2x, jer (x²)' = 2x. Takođe x²+1, x²+5, ... sve su primitivne za f(x) = 2x.</div>
+    </div>
+  </div>
+</div>
+
+<!-- P2 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P2</span>
+      <div class="q-body">Formulisati i dokazati teoremu o obliku skupa svih primitivnih funkcija za f na (a,b).</div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <strong>Teorema:</strong> Ako je F tačna primitivna funkcija za f, tada su sve tačne primitivne funkcije oblika F + c, c ∈ ℝ.
+      <br><br>
+      <strong>Dokaz:</strong><br>
+      Neka je G još jedna primitivna funkcija za f, tj. G' = f.<br>
+      Tada: (G − F)' = G' − F' = f − f = 0<br>
+      Neka H = G − F. H je takva da H' = 0 na (a,b).<br>
+      Uzmimo x₁, x₂ ∈ (a,b). Po Lagrangeovoj teoremi:
+      <div class="math-answer">H(x₁) − H(x₂) = H'(s) · (x₁ − x₂),   s ∈ (x₁, x₂)</div>
+      Pošto H'(s) = 0, slijedi H(x₁) − H(x₂) = 0, tj. H(x₁) = H(x₂).<br>
+      H uzima istu vrijednost u svim tačkama ⟹ H je konstanta, H(x) = c, c ∈ ℝ.<br>
+      Dakle G − F = c ⟹ <strong>G = F + c.</strong> □
+    </div>
+  </div>
+</div>
+
+<!-- P3 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P3</span>
+      <div class="q-body">Šta je neodređeni integral? Navesti oznaku i objasniti šta svaki dio oznake predstavlja.</div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      Neodređeni integral <strong>predstavlja skup svih tačnih primitivnih funkcija</strong> za f.
+      <div class="math-answer">∫ f(x) dx = F(x) + C</div>
+      <ul>
+        <li><span class="math-inline">∫</span> — znak integrala</li>
+        <li><span class="math-inline">f(x)</span> — podintegralna funkcija (ono što integrišemo)</li>
+        <li><span class="math-inline">dx</span> — podintegralni izraz / mjera integracije</li>
+        <li><span class="math-inline">F(x)</span> — jedna primitivna funkcija za f</li>
+        <li><span class="math-inline">C</span> — konstanta integracije, C ∈ ℝ</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- P4 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P4</span>
+      <div class="q-body">Navesti sva 4 osnovna svojstva neodređenog integrala.</div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <ol>
+        <li><strong>Derivacija integrala:</strong>
+          <div class="math-answer">(∫ f(x) dx)' = f(x)</div>
+        </li>
+        <li><strong>Diferencijal integrala:</strong>
+          <div class="math-answer">d(∫ f(x) dx) = (∫ f(x) dx)' dx = f(x) dx</div>
+        </li>
+        <li><strong>Integral derivacije:</strong>
+          <div class="math-answer">∫ f'(x) dx = f(x) + C,   C ∈ ℝ</div>
+        </li>
+        <li><strong>Linearnost (zbir i skaliranje):</strong>
+          <div class="math-answer">∫ [αf(x) + βg(x)] dx = α∫f(x)dx + β∫g(x)dx,   α,β ∈ ℝ</div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+</div><!-- end page -->
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SEKCIJA II -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="page">
+<div class="section-header">II — Tabela integrala</div>
+
+<!-- P5 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P5</span>
+      <div class="q-body">Napisati svih 10 formula iz tabele neodređenih integrala.</div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">1)  ∫ xᵐ dx = x^(m+1)/(m+1) + C,     m ∈ ℕ
+2)  ∫ xᵅ dx = x^(α+1)/(α+1) + C,     α ∈ ℝ\{−1}
+3)  ∫ (1/x) dx = ln|x| + C,           x ≠ 0
+4)  ∫ sin(x) dx = −cos(x) + C
+5)  ∫ cos(x) dx = sin(x) + C
+6)  ∫ 1/cos²(x) dx = tg(x) + C,       x ≠ π/2 + kπ
+7)  ∫ 1/sin²(x) dx = −ctg(x) + C,     x ≠ kπ
+8)  ∫ aˣ dx = aˣ/ln(a) + C,           a > 0, a ≠ 1
+   (Specijalno: ∫ eˣ dx = eˣ + C)
+9)  ∫ 1/(1+x²) dx = arctg(x) + C
+               ili  −arcctg(x) + C
+10) ∫ 1/√(1−x²) dx = arcsin(x) + C
+                ili  −arccos(x) + C,   −1 < x < 1</div>
+      <div class="note-box">Bonus (iz primjera): ∫ 1/√(x²±a²) dx = ln|x + √(x²±a²)| + C, a ≠ 0</div>
+    </div>
+  </div>
+</div>
+
+<!-- P6 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P6</span>
+      <div class="q-body">Izračunati direktno iz tabele (linearnost + tabela):
+        <div class="math-block">∫ [∛x + 4/x − sin(x)] dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">∫ [x^(1/3) + 4/x − sin(x)] dx
+= ∫ x^(1/3) dx + 4·∫ (1/x) dx − ∫ sin(x) dx
+= x^(4/3)/(4/3) + 4·ln|x| − (−cos(x)) + C</div>
+      <div class="math-answer final">= (3/4)·x^(4/3) + 4·ln|x| + cos(x) + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P7 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P7</span>
+      <div class="q-body">Izračunati direktno iz tabele:
+        <div class="math-block">∫ 2x dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer final">∫ 2x dx = x² + C</div>
+      <div class="note-box">Provjera: (x² + C)' = 2x ✓</div>
+    </div>
+  </div>
+</div>
+
+<!-- P8 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P8</span>
+      <div class="q-body">Koristiti svojstvo 3 (integral derivacije) i izračunati:
+        <div class="math-block">∫ 2(x⁴+3x)·(4x³+3) dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      Primijetimo da je <span class="math-inline">(x⁴+3x)' = 4x³+3</span>, pa je <span class="math-inline">φ(x) = x⁴+3x</span> i <span class="math-inline">φ'(x) = 4x³+3</span>.
+      <br>
+      Integrand je oblika <span class="math-inline">2·φ(x)·φ'(x) = (φ²)'</span>
+      <div class="math-answer final">∫ 2(x⁴+3x)(4x³+3) dx = (x⁴+3x)² + C</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end page -->
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SEKCIJA III -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="page">
+<div class="section-header">III — Supstitucija (smjena promjenljive)</div>
+
+<!-- P9 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P9</span>
+      <div class="q-body">Formulisati teoremu o smjeni promjenljive (supstituciji) u neodređenom integralu.</div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <strong>Teorema:</strong> Neka je F tačna primitivna funkcija za f na (α,β). Neka je na (a,b) φ = φ(x) diferencijabilna i φ(a,b) ⊆ (α,β). Tada:
+      <div class="math-answer">∫ f(φ(x)) · φ'(x) dx = F(φ(x)) + C</div>
+      <strong>Postupak supstitucije:</strong>
+      <ol>
+        <li>Postaviti smjenu: t = φ(x)</li>
+        <li>Izračunati: dt = φ'(x) dx</li>
+        <li>Izraziti dx: dx = dt/φ'(x)</li>
+        <li>Supstituisati, izračunati integral po t</li>
+        <li>Vratiti originalnu promjenljivu: t → φ(x)</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- P10 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P10</span>
+      <div class="q-body">Izračunati supstitucijom:
+        <div class="math-block">∫ e^(4x+2) dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">Supstitucija: t = 4x+2,   dt = 4dx  ⟹  dx = dt/4
+
+∫ eᵗ · (dt/4) = (1/4) ∫ eᵗ dt = (1/4)eᵗ + C</div>
+      <div class="math-answer final">= (1/4)·e^(4x+2) + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P11 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P11</span>
+      <div class="q-body">Izračunati supstitucijom:
+        <div class="math-block">∫ (2x+5)⁴ dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">t = 2x+5,   dt = 2dx  ⟹  dx = dt/2
+
+∫ t⁴ · (dt/2) = (1/2) · t⁵/5 + C</div>
+      <div class="math-answer final">= (1/10)·(2x+5)⁵ + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P12 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P12</span>
+      <div class="q-body">Izračunati supstitucijom:
+        <div class="math-block">∫ e^(x²) · x dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">t = x²,   dt = 2x dx  ⟹  x dx = dt/2
+
+∫ eᵗ · (dt/2) = (1/2) eᵗ + C</div>
+      <div class="math-answer final">= (1/2)·e^(x²) + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P13 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P13</span>
+      <div class="q-body">Izračunati supstitucijom:
+        <div class="math-block">∫ 1/(x² + a²) dx,   a ≠ 0</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">∫ 1/(x²+a²) dx = (1/a²) ∫ 1/(1+(x/a)²) dx
+
+Supstitucija: t = x/a,   dt = dx/a  ⟹  dx = a·dt
+
+= (1/a²) · a · ∫ 1/(1+t²) dt = (1/a) arctg(t) + C</div>
+      <div class="math-answer final">= (1/a)·arctg(x/a) + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P14 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P14</span>
+      <div class="q-body">Izračunati supstitucijom (trigonometrijska supstitucija):
+        <div class="math-block">∫ √(a²−x²) dx,   a > 0</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">Supstitucija: x = a·sin(t),  dx = a·cos(t) dt,  t = arcsin(x/a)
+Uslov: −π/2 < t < π/2  (cos(t) ≥ 0)
+
+√(a²−x²) = √(a²−a²sin²t) = a·√(1−sin²t) = a·|cos(t)| = a·cos(t)
+
+∫ a·cos(t) · a·cos(t) dt = a² ∫ cos²(t) dt
+
+cos²(t) = (1 + cos(2t))/2
+
+= a² ∫ (1/2 + cos(2t)/2) dt
+= a²(t/2 + sin(2t)/4) + C
+= (a²/2)(t + sin(2t)/2) + C
+= (a²/2)(arcsin(x/a) + (1/2)·sin(2·arcsin(x/a))) + C</div>
+      <div class="math-answer final">= (a²/2)·arcsin(x/a) + (x/2)·√(a²−x²) + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P15 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P15</span>
+      <div class="q-body">Izračunati:
+        <div class="math-block">∫ 1/√(x²±a²) dx,   a ≠ 0</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      Supstitucija: <span class="math-inline">t = x + √(x²±a²)</span>
+      <div class="math-answer">dt = (1 + x/√(x²±a²)) dx = (√(x²±a²) + x)/√(x²±a²) · dx = t/√(x²±a²) · dx
+
+⟹  dx/√(x²±a²) = dt/t
+
+∫ dt/t = ln|t| + C</div>
+      <div class="math-answer final">= ln|x + √(x²±a²)| + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P16 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P16</span>
+      <div class="q-body">Izračunati:
+        <div class="math-block">∫ 1/(x² + 4x + 13) dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">Diskriminanta: D = 16 − 52 < 0  ⟹  dopuniti kvadrat
+
+x²+4x+13 = x²+2·x·2+4+9 = (x+2)²+9 = (x+2)²+3²
+
+∫ 1/((x+2)²+9) dx = (1/9) ∫ 1/(1+((x+2)/3)²) dx
+
+Supstitucija: t = (x+2)/3,   dx = 3·dt
+
+= (1/9)·3 ∫ 1/(1+t²) dt = (1/3) arctg(t) + C</div>
+      <div class="math-answer final">= (1/3)·arctg((x+2)/3) + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P17 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P17</span>
+      <div class="q-body">Izračunati:
+        <div class="math-block">∫ 1/(x² − 4x + 4) dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">D = 16−16 = 0  ⟹  x₁,₂ = 2 (dvostruki nul)
+
+x²−4x+4 = (x−2)²
+
+∫ 1/(x−2)² dx = ∫ (x−2)^(−2) dx
+
+Supstitucija: t = x−2, dt = dx
+
+= ∫ t^(−2) dt = t^(−1)/(−1) + C = −1/t + C</div>
+      <div class="math-answer final">= −1/(x−2) + C</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end page -->
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SEKCIJA IV -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="page">
+<div class="section-header">IV — Parcijalna integracija</div>
+
+<!-- P18 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P18</span>
+      <div class="q-body">Formulisati teoremu o parcijalnoj integraciji. Navesti oba zapisa formule.</div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <strong>Teorema:</strong> Neka su u, v ∈ D(a,b) i neka postoji ∫u'(x)v(x)dx. Tada postoji i ∫u(x)v'(x)dx i važi:
+      <div class="math-answer">∫ u(x)·v'(x) dx = u(x)·v(x) − ∫ u'(x)·v(x) dx</div>
+      <strong>Drugi zapis (diferencijalni oblik):</strong>
+      <div class="math-answer">∫ u dv = u·v − ∫ v du</div>
+      <strong>Ideja (zašto vrijedi):</strong><br>
+      (u·v)' = u'·v + u·v'  ⟹  u·v' = (u·v)' − u'·v<br>
+      Integrišemo obje strane: ∫u·v'dx = u·v − ∫u'·v dx
+    </div>
+  </div>
+</div>
+
+<!-- P19 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P19</span>
+      <div class="q-body">Izračunati parcijalnom integracijom:
+        <div class="math-block">∫ x·eˣ dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">u = x      du = dx
+dv = eˣdx  v = eˣ
+
+∫ x·eˣ dx = x·eˣ − ∫ eˣ dx = x·eˣ − eˣ + C</div>
+      <div class="math-answer final">= eˣ(x − 1) + C</div>
+      <div class="note-box">Provjera: (eˣ(x−1))' = eˣ(x−1) + eˣ·1 = eˣ·x ✓</div>
+    </div>
+  </div>
+</div>
+
+<!-- P20 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P20</span>
+      <div class="q-body">Izračunati parcijalnom integracijom (dva puta):
+        <div class="math-block">∫ x²·sin(x) dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="note-box">Trik "tablični metod" (tablica deriviranja/integriranja):<br>
+      Deriviramo: x² → 2x → 2 → 0<br>
+      Integrišemo: sin(x) → −cos(x) → −sin(x) → cos(x)<br>
+      Naizmjenični znakovi: +, −, +</div>
+      <div class="math-answer">= (+1)·x²·(−cos(x)) + (−1)·2x·(−sin(x)) + (+1)·2·cos(x) + C</div>
+      <div class="math-answer final">= −x²·cos(x) + 2x·sin(x) + 2·cos(x) + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P21 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P21</span>
+      <div class="q-body">Izračunati parcijalnom integracijom (vraćanje integrala):
+        <div class="math-block">∫ eˣ·cos(x) dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">Označimo I = ∫ eˣ·cos(x) dx
+
+1. korak: u = eˣ, dv = cos(x)dx  ⟹  du = eˣdx, v = sin(x)
+I = eˣ·sin(x) − ∫ eˣ·sin(x) dx
+
+2. korak: u = eˣ, dv = sin(x)dx  ⟹  du = eˣdx, v = −cos(x)
+∫ eˣ·sin(x)dx = eˣ·(−cos(x)) − ∫ eˣ·(−cos(x))dx
+              = −eˣ·cos(x) + ∫ eˣ·cos(x) dx
+              = −eˣ·cos(x) + I
+
+Dakle: I = eˣ·sin(x) − (−eˣ·cos(x) + I)
+       I = eˣ·sin(x) + eˣ·cos(x) − I
+      2I = eˣ·sin(x) + eˣ·cos(x) + C</div>
+      <div class="math-answer final">I = (1/2)·eˣ·(sin(x) + cos(x)) + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P22 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P22</span>
+      <div class="q-body">Izračunati parcijalnom integracijom:
+        <div class="math-block">∫ arctg(x) dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">u = arctg(x)    du = 1/(1+x²) dx
+dv = dx          v = x
+
+= x·arctg(x) − ∫ x/(1+x²) dx
+
+Preostali integral: supstitucija t = 1+x², dt = 2x dx
+∫ x/(1+x²) dx = (1/2) ∫ dt/t = (1/2)·ln|t| = (1/2)·ln(1+x²)</div>
+      <div class="math-answer final">= x·arctg(x) − (1/2)·ln(1+x²) + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P23 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P23</span>
+      <div class="q-body">Izračunati parcijalnom integracijom (tablični metod):
+        <div class="math-block">∫ x³·cos(x) dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">Tablični metod:
+Deriviramo (+/−):   x³  →  3x²  →  6x  →  6  →  0
+Integrišemo:     cos(x) → sin(x) → −cos(x) → −sin(x) → cos(x)
+Znakovi:             +       −        +          −
+
+= x³·sin(x) + 3x²·cos(x) − 6x·sin(x) − 6·cos(x) + C</div>
+      <div class="math-answer final">= x³·sin(x) + 3x²·cos(x) − 6x·sin(x) − 6·cos(x) + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P24 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P24</span>
+      <div class="q-body">Izračunati parcijalnom integracijom:
+        <div class="math-block">∫ √(a²+x²) dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">u = √(a²+x²)      du = x/√(a²+x²) dx
+dv = dx            v = x
+
+I = x√(a²+x²) − ∫ x²/√(a²+x²) dx
+
+Dodajemo i oduzimamo a²:
+= x√(a²+x²) − ∫ (x²+a²−a²)/√(a²+x²) dx
+= x√(a²+x²) − ∫ √(a²+x²) dx + a² ∫ 1/√(a²+x²) dx
+= x√(a²+x²) − I + a²·ln|x+√(a²+x²)| + C
+
+2I = x√(a²+x²) + a²·ln|x+√(a²+x²)| + C</div>
+      <div class="math-answer final">= (1/2)(x√(a²+x²) + a²·ln|x+√(a²+x²)|) + C</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end page -->
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SEKCIJA V -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="page">
+<div class="section-header">V — Integracija racionalnih funkcija</div>
+
+<!-- P25 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P25</span>
+      <div class="q-body">Opisati opštu metodu integracije racionalnih funkcija Pₘ(x)/Qₙ(x). Koji su koraci?</div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <strong>Korak 1:</strong> Ako je m ≥ n, dijeljenje polinoma:
+      <div class="math-answer">Pₘ(x) = S(x)·Qₙ(x) + r(x),   deg(r) < deg(Q)
+
+∫ Pₘ/Qₙ dx = ∫ S(x) dx + ∫ r(x)/Qₙ(x) dx</div>
+      <strong>Korak 2:</strong> Faktorizacija Qₙ(x) (nalazimo nule):
+      <ul>
+        <li>Realne nule → linearni faktori (x−aᵢ)^kᵢ</li>
+        <li>Kompleksne nule u parovima → kvadratni faktori (x²+pⱼx+qⱼ)^lⱼ gdje D = p²−4q &lt; 0</li>
+      </ul>
+      <strong>Korak 3:</strong> Razlaganje na parcijalne razlomke (4 oblika):
+      <div class="math-answer">(i)   A/(x−a)
+(ii)  A/(x−a)^k,   k ≥ 2
+(iii) (Ax+B)/(x²+px+q),   D < 0
+(iv)  (Ax+B)/(x²+px+q)^k,   D < 0, k ≥ 2</div>
+      <strong>Korak 4:</strong> Određivanje neodređenih koeficijenata (A, B, C, D, ...).<br>
+      <strong>Korak 5:</strong> Integracija svakog razlomka posebno.
+    </div>
+  </div>
+</div>
+
+<!-- P26 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P26</span>
+      <div class="q-body">Navesti formule za integraciju sva 4 osnovna oblika parcijalnih razlomaka.</div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">(i)  ∫ A/(x−a) dx = A·ln|x−a| + C
+
+(ii) ∫ A/(x−a)^k dx = A·(x−a)^(1−k)/(1−k) + C,   k ≥ 2
+
+(iii) ∫ (Ax+B)/(x²+px+q) dx  (D = p²−4q < 0):
+     = (A/2)·ln|x²+px+q| + (B−Ap/2)·(1/a)·arctg((x+p/2)/a) + C
+     gdje je a² = q − p²/4 > 0
+
+(iv) ∫ (Ax+B)/(x²+px+q)^k dx → svodi se na Iₖ rekurentnom formulom:
+     Iₖ₊₁ = 1/(2ka²) · [t/(t²+a²)^k + (2k−1)·Iₖ]
+     gdje t = x + p/2,  a² = q − p²/4</div>
+    </div>
+  </div>
+</div>
+
+<!-- P27 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P27</span>
+      <div class="q-body">Izračunati integracijom racionalne funkcije:
+        <div class="math-block">∫ 1/(x² − 2x − 3) dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">D = 4+12 = 16 > 0  ⟹  x₁ = 3, x₂ = −1
+x²−2x−3 = (x−3)(x+1)
+
+Razlaganje: 1/((x−3)(x+1)) = A/(x−3) + B/(x+1)
+
+1 = A(x+1) + B(x−3)
+1 = (A+B)x + (A−3B)
+
+A+B = 0  ⟹  A = −B
+A−3B = 1  ⟹  −4B = 1  ⟹  B = −1/4,  A = 1/4
+
+∫ (1/4/(x−3) − 1/4/(x+1)) dx
+= (1/4)·ln|x−3| − (1/4)·ln|x+1| + C</div>
+      <div class="math-answer final">= (1/4)·ln|(x−3)/(x+1)| + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P28 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P28</span>
+      <div class="q-body">Izračunati integracijom racionalne funkcije (nepravi razlomak — dijeljenje polinoma):
+        <div class="math-block">∫ (8x³ + 4x² + 5x − 6) / (x² − 9) dx</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">Stepeni: m=3, n=2  ⟹  m > n, dijelimo:
+
+(8x³+4x²+5x−6) : (x²−9) = 8x+4  ostatak 77x+30
+
+⟹ 8x³+4x²+5x−6 = (x²−9)(8x+4) + 77x+30
+
+∫ = ∫(8x+4)dx + ∫(77x+30)/(x²−9) dx
+
+x²−9 = (x−3)(x+3)
+(77x+30)/((x−3)(x+3)) = A/(x−3) + B/(x+3)
+77x+30 = A(x+3)+B(x−3)
+x=3:  261 = 6A  ⟹  A = 261/6
+x=−3: −201 = −6B  ⟹  B = 201/6
+
+∫(8x+4)dx = 4x² + 4x</div>
+      <div class="math-answer final">= 4x²+4x + (261/6)·ln|x−3| + (201/6)·ln|x+3| + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- P29 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P29</span>
+      <div class="q-body">Napisati razlaganje na parcijalne razlomke (bez računanja koeficijenata) za:
+        <div class="math-block">∫ (4x+2) / (x⁴−x³−x²−x−2) dx</div>
+        <div class="math-block">gdje je: x⁴−x³−x²−x−2 = (x−2)(x+1)(x²+1)</div>
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <div class="math-answer">(4x+2)/((x−2)(x+1)(x²+1)) = A/(x−2) + B/(x+1) + (Cx+D)/(x²+1)</div>
+      Odrediti A, B, C, D množenjem sa nazivnikom i poređenjem koeficijenata ili uvrštavanjem nula.
+      <div class="note-box">x²+1 = 0 nema realnih rješenja (D = −4 &lt; 0) → kvadratni faktor s linearnim brojevnikom.</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end page -->
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SEKCIJA VI -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="page">
+<div class="section-header">VI — Napredni integrali i rekurentne formule</div>
+
+<!-- P30 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">P30</span>
+      <div class="q-body">Izvesti rekurentnu formulu za:
+        <div class="math-block">Iₖ = ∫ 1/(t²+a²)^k dt</div>
+        i primijeniti je za izračunavanje I₃ za slučaj a = 2 (tj. ∫ 1/(x²+4)³ dx).
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <strong>Izvod rekurentne formule (parcijalnom integracijom):</strong>
+      <div class="math-answer">Iₖ = ∫ 1/(t²+a²)^k dt
+
+u = (t²+a²)^(−k)     du = −k·(t²+a²)^(−k−1)·2t dt
+dv = dt               v = t
+
+= t·(t²+a²)^(−k) + 2k ∫ t²/(t²+a²)^(k+1) dt
+
+Dodamo i oduzmemo a²:
+t² = (t²+a²) − a²
+
+= t/(t²+a²)^k + 2k·Iₖ − 2k·a²·Iₖ₊₁
+
+⟹  Iₖ = t/(t²+a²)^k + 2k·Iₖ − 2k·a²·Iₖ₊₁
+
+⟹  2k·a²·Iₖ₊₁ = t/(t²+a²)^k + (2k−1)·Iₖ</div>
+      <div class="math-answer final">Iₖ₊₁ = 1/(2k·a²) · [t/(t²+a²)^k + (2k−1)·Iₖ]</div>
+      <strong>Primjena za I₃ (a=2, k=2):</strong>
+      <div class="math-answer">I₁ = (1/2)·arctg(x/2) + C   (iz tabele, a=2)
+
+I₂ = 1/(2·1·4) · [x/(x²+4)¹ + 1·I₁]
+   = (1/8) · [x/(x²+4) + (1/2)·arctg(x/2)] + C
+
+I₃ = 1/(2·2·4) · [x/(x²+4)² + 3·I₂]
+   = (1/16) · [x/(x²+4)² + 3·(1/8)·(x/(x²+4) + (1/2)·arctg(x/2))] + C</div>
+    </div>
+  </div>
+</div>
+
+<!-- BONUS P31 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">B1</span>
+      <div class="q-body"><em>(Bonus — integracioni put)</em> Kada se za integral oblika ∫ 1/(ax²+bx+c) dx koristi arctg, a kada parcijalni razlomci? Objasniti kriterij.</div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      Kriterij je <strong>diskriminanta D = b² − 4ac</strong>:
+      <div class="math-answer">D < 0: kvadratni trinomial nema realnih nula
+       ⟹ dopunjujemo kvadrat → oblik (x+p/2)²+a²
+       ⟹ koristimo arctg formulu
+
+D = 0: dvostruki nul x₀ = −b/2a
+       ⟹ ax²+bx+c = a(x−x₀)²
+       ⟹ ∫ 1/((x−x₀)²) dx = −1/(x−x₀) + C
+
+D > 0: dva realna nula x₁, x₂
+       ⟹ ax²+bx+c = a(x−x₁)(x−x₂)
+       ⟹ parcijalni razlomci: A/(x−x₁) + B/(x−x₂)
+       ⟹ rezultat ln formulama</div>
+    </div>
+  </div>
+</div>
+
+<!-- BONUS P32 -->
+<div class="qa-block">
+  <div class="question-part" onclick="toggle(this)">
+    <div class="toggle-hint">klikni</div>
+    <div class="q-label-row">
+      <span class="q-badge">B2</span>
+      <div class="q-body"><em>(Bonus)</em> Izračunati:
+        <div class="math-block">∫ (Ax+B)/(x²+px+q) dx,   gdje je D = p²−4q &lt; 0</div>
+        Objasniti opšti postupak.
+      </div>
+    </div>
+  </div>
+  <div class="answer-part">
+    <div class="a-label">✓ Odgovor</div>
+    <div class="a-body">
+      <strong>Ideja:</strong> rastaviti brojevnik da se u njemu pojavi (2x+p) = derivacija nazivnika.
+      <div class="math-answer">Ax+B = (A/2)·(2x+p) + (B − Ap/2)
+
+∫ (Ax+B)/(x²+px+q) dx
+= (A/2) ∫ (2x+p)/(x²+px+q) dx + (B−Ap/2) ∫ 1/(x²+px+q) dx
+
+1. integral: t = x²+px+q,  dt = (2x+p)dx
+   ⟹ (A/2) ∫ dt/t = (A/2)·ln|x²+px+q|
+
+2. integral: dopuniti kvadrat
+   x²+px+q = (x+p/2)² + (q−p²/4) = (x+p/2)² + a²
+   gdje a² = q−p²/4 > 0 (jer D < 0)
+   ⟹ (B−Ap/2)·(1/a)·arctg((x+p/2)/a)</div>
+      <div class="math-answer final">= (A/2)·ln|x²+px+q| + (B−Ap/2)·(1/a)·arctg((x+p/2)/a) + C</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end page -->
+
+<script>
+  function toggle(questionPart) {
+    const answer = questionPart.nextElementSibling;
+    const hint = questionPart.querySelector('.toggle-hint');
+    if (answer.classList.contains('open')) {
+      answer.classList.remove('open');
+      hint.textContent = 'klikni';
+    } else {
+      answer.classList.add('open');
+      hint.textContent = 'zatvori';
+    }
+  }
+
+  function openAll() {
+    document.querySelectorAll('.answer-part').forEach(a => a.classList.add('open'));
+    document.querySelectorAll('.toggle-hint').forEach(h => h.textContent = 'zatvori');
+  }
+
+  function closeAll() {
+    document.querySelectorAll('.answer-part').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.toggle-hint').forEach(h => h.textContent = 'klikni');
+  }
+</script>
+</body>
+</html>
